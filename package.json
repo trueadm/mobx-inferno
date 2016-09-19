@@ -32,9 +32,9 @@
     "mobx": "2.x"
   },
   "devDependencies": {
-    "inferno": "latest",
-    "inferno-dom": "latest",
-    "inferno-component": "latest",
-    "inferno-create-class": "latest"
+    "inferno": "^1.0.0-alpha8",
+    "inferno-dom": "^1.0.0-alpha8",
+    "inferno-component": "^1.0.0-alpha8",
+    "inferno-create-class": "^0.8.0-alpha2"
   }
 }
