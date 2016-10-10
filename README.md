@@ -14,6 +14,10 @@ Exports the `observer` decorator and some development utilities.
 For documentation, see the [mobx](https://mobxjs.github.io/mobx) project.
 This package supports Inferno.
 
+# This version is for Inferno v0.8
+
+If you want one that supports Inferno v1 and newer, use [inferno-mobx](https://www.npmjs.com/package/inferno-mobx)
+
 ## Installation
 
 `npm install mobx-inferno --save`
