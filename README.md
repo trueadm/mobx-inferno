@@ -5,17 +5,12 @@
 
 This is a fork of [mobx-react](https://github.com/mobxjs/mobx-react) for [Inferno](https://github.com/trueadm/inferno)
 
-<p>&nbsp;</p>
-<p align="center"><img src="http://infernojs.org/img/inferno.png" width="150px"></p>
-<p>&nbsp;</p>
-
 Package with inferno component wrapper for combining Inferno with mobx.
 Exports the `observer` decorator and some development utilities.
 For documentation, see the [mobx](https://mobxjs.github.io/mobx) project.
 This package supports Inferno.
 
-# This version is for Inferno v0.8
-
+# Warning: This version is for the OLD Inferno v0.8
 If you want one that supports Inferno v1 and newer, use [inferno-mobx](https://www.npmjs.com/package/inferno-mobx)
 
 ## Installation
@@ -30,6 +25,43 @@ This package provides the bindings for MobX and Inferno.
 See the [official documentation](http://mobxjs.github.io/mobx/intro/overview.html) for how to get started.
 
 ## API documentation
+
+## Provider
+
+You can inject props using the following syntax
+
+```js
+import Inferno from 'inferno'
+import Component from 'inferno-component'
+import { observer } from 'mobx-inferno'
+
+@observer(['model'])
+class MyComponent extends Component {
+    render() {
+        return <p>{this.props.model.hello}</p>
+    }
+}
+```
+
+Just make sure that you provided your model to the mobx `Provider` in your main render. Ex:
+
+```js
+import Inferno from 'inferno'
+import InfernoDOM from 'inferno-dom'
+import { Provider } from 'mobx-inferno'
+import { observable } from 'mobx'
+
+const model = observable({
+    hello: 'world'
+})
+
+InfernoDOM.render(<Provider model={model}>
+    <MyComponent/>
+</Provider>, document.getElementById('root'))
+```
+
+Now whenever `something` is changed, your components will update.
+
 
 ### observer(componentClass)
 
@@ -73,6 +105,8 @@ const TodoView = observer(props => (
 
 It is possible to set a custom `shouldComponentUpdate`, but in general this should be avoid as MobX will by default provide a highly optimized `shouldComponentUpdate` implementation, based on `PureRenderMixin`.
 If a custom `shouldComponentUpdate` is provided, it is consulted when the props changes (because the parent passes new props) or the state changes (as a result of calling `setState`), but if an observable used by the rendering is changed, the component will be re-rendered and `shouldComponent` is not consulted. 
+
+
 
 ### `componentWillReact` (lifecycle hook)
 
