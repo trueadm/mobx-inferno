@@ -1,7 +1,7 @@
 {
   "name": "mobx-inferno",
-  "version": "0.2.1",
-  "description": "Inferno bindings for MobX",
+  "version": "0.2.2",
+  "description": "OLD Inferno bindings for MobX",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -25,16 +25,7 @@
     "url": "https://github.com/nightwolfz/mobx-inferno/issues"
   },
   "dependencies": {
-    "hoist-non-react-statics": "^1.2.0",
-    "mobx": "2.x"
-  },
-  "peerDependencies": {
-    "mobx": "2.x"
   },
   "devDependencies": {
-    "inferno": "latest",
-    "inferno-dom": "latest",
-    "inferno-component": "latest",
-    "inferno-create-class": "latest"
   }
 }
